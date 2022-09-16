@@ -1,11 +1,23 @@
 import { Card, Chip, Grid } from '@mui/material'
 
+import './pokemonCard.css'
+
 interface PokemonCardProps {
   pokemon: any,
+	currentAnimation: number
+}
+
+const dictionaryAnimate: any = {
+	0: 'animate__fadeInLeft',
+	1: 'animate__fadeInUp',
+	2: 'animate__fadeInDown',
+	3: 'animate__fadeInUp',
+	4: 'animate__fadeInRight'
 }
 
 export function PokemonCard({
-	pokemon
+	pokemon,
+	currentAnimation
 }: PokemonCardProps) {
 	const sprites = JSON.parse(pokemon?.pokemon_v2_pokemonsprites[0]?.sprites)
 	const photo = sprites?.other?.home?.front_default
@@ -16,11 +28,7 @@ export function PokemonCard({
 	return (
 		<Grid item>
 			<Card
-				style={{
-					height: 220,
-					width: 150,
-					padding: 5
-				}}
+				className={`animate__animated ${dictionaryAnimate[currentAnimation]} animate__delay-0.5s pokemon-item`}
 			>
 				<Grid container spacing={1}>
 					<Grid item xs={12}>

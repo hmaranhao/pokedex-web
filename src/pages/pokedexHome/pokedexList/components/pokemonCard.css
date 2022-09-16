@@ -1,0 +1,12 @@
+.pokemon-item {
+  height: 220px;
+  width: 150px;
+  padding: 5px;
+  cursor: pointer;
+  transition: transform 100ms linear, background-color 2s linear;
+}
+
+.pokemon-item:hover {
+  transform: scale(1.05) !important;
+  background-color: azure;
+}

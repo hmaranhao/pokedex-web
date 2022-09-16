@@ -1,10 +1,13 @@
+import { Container } from '@mui/material'
+import { Outlet } from 'react-router-dom'
+
 function App() {
 
-  return (
-    <div>
-      <h1>Hello Pokédex!!</h1>
-    </div>
-  )
+	return (
+		<Container maxWidth="md">
+			<Outlet />
+		</Container>
+	)
 }
 
 export default App

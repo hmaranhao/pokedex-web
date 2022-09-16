@@ -9,9 +9,9 @@ import 'animate.css'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <ApolloProvider  client={api}>
-      <PokedexRoutes />
-    </ApolloProvider>
-  </React.StrictMode>
+	<React.StrictMode>
+		<ApolloProvider  client={api}>
+			<PokedexRoutes />
+		</ApolloProvider>
+	</React.StrictMode>
 )
