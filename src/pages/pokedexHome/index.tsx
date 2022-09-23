@@ -1,7 +1,7 @@
-import { PokedexList } from "./pokedexList";
+import { PokedexList } from './pokedexList'
 
 export function PokedexHome() {
-  return (
-    <PokedexList />
-  )
+	return (
+		<PokedexList />
+	)
 }

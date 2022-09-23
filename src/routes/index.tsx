@@ -4,16 +4,18 @@ import {
 	Route,
 } from 'react-router-dom'
 
-import App from './../App'
+import { PokedexLayout } from './../pages/pokedexLayout'
 import { PokedexHome } from '../pages/pokedexHome'
+import { PokedexDetails } from '../pages/pokedexDetails'
 
 export function PokedexRoutes() {
 
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" element={<App />}>
-					<Route path="/home" element={<PokedexHome />} />
+				<Route path="/" element={<PokedexLayout />}>
+					<Route path="/" element={<PokedexHome />} />
+					<Route path=":pokedexId" element={<PokedexDetails />} />
 				</Route>
 			</Routes>
 		</BrowserRouter>

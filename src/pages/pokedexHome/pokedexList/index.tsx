@@ -5,11 +5,10 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 
 import { GET_POKEMONS } from '../../../graphql/querys'
 import { PokemonCard } from './components/pokemonCard'
-import GIF_POKEBOLA from './../../../gif_pokebola.gif'
 
 export function PokedexList() {
 	const [pokemons, setPokemons] = useState<any>([])
-	const [loadPokemons, { loading, error, data }] = useLazyQuery(GET_POKEMONS)
+	const [loadPokemons, { data }] = useLazyQuery(GET_POKEMONS)
 
 	useEffect(() => {
 		loadPokemons()
@@ -32,6 +31,7 @@ export function PokedexList() {
 			currentAnimation++
 		}
 	}
+
 	return (
 		<InfiniteScroll
 			dataLength={pokemons.length}
@@ -42,7 +42,7 @@ export function PokedexList() {
 					Loading...
 				</div>
 			}
-			style={{ overflow: 'hidden' }}
+			style={{ overflow: 'hidden', padding: 5 }}
 			endMessage={
 				<p style={{ textAlign: 'center' }}>
 					<b>Você chegou ao fim da lista!!</b>

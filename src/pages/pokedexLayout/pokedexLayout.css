@@ -1,0 +1,7 @@
+.container {
+  background-image: url(https://www.pngall.com/wp-content/uploads/4/Pokeball-PNG-Free-Download.png);
+  background-repeat: round;
+  background-size: 140px 80px;
+  background-clip: content-box;
+  min-height: 100vh;
+}

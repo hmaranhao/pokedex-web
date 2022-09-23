@@ -1,9 +1,11 @@
 import { Card, Chip, Grid } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
+import { dictionaryTypesColor } from './constants'
 
 import './pokemonCard.css'
 
 interface PokemonCardProps {
-  pokemon: any,
+	pokemon: any,
 	currentAnimation: number
 }
 
@@ -25,17 +27,20 @@ export function PokemonCard({
 		return pokemonType?.pokemon_v2_type?.name
 	})
 
+	const navigate = useNavigate()
+
 	return (
 		<Grid item>
 			<Card
 				className={`animate__animated ${dictionaryAnimate[currentAnimation]} animate__delay-0.5s pokemon-item`}
+				onClick={() => navigate(`/${pokemon?.id}`)}
 			>
 				<Grid container spacing={1}>
 					<Grid item xs={12}>
-            #{pokemon?.id}
+						#{pokemon?.id}
 					</Grid>
 					<Grid item xs={12} style={{ display: 'flex', justifyContent: 'center' }}>
-						<img src={photo} alt={pokemon?.name} style={{ maxWidth: '85%' }} />
+						<img src={photo} alt={pokemon?.name} style={{ maxWidth: '85%', minHeight: 127.5 }} />
 					</Grid>
 					<Grid item xs={12}>
 						{pokemon?.name}
@@ -43,7 +48,15 @@ export function PokemonCard({
 					<Grid item xs={12} container spacing={1}>
 						{types?.map((type: string, idx: number) => (
 							<Grid item key={type + idx}>
-								<Chip size="small" label={type} />
+								<Chip
+									size="small"
+									label={type}
+									style={{
+										backgroundColor: dictionaryTypesColor[type],
+										color: '#fff',
+										fontWeight: 'bold'
+									}}
+								/>
 							</Grid>
 						))}
 					</Grid>
